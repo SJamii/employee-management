@@ -54,6 +54,19 @@ public class EmployeeControllerRest {
         return "index";
     }*/
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public
+    String helloWorld()
+    {
+        log.info("---------  Get Employee List Controller Rest  ---------");
+        try {
+
+        } catch (Exception ex) {
+            log.error("Error Occured :: " + ex.getMessage());
+        }
+        return "AWS Test is Completed For this project";
+    }
+
 
     @RequestMapping(value = "/getEmployeeList", method = RequestMethod.GET)
     public

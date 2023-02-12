@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coolkid
+    username: coolkids
+    password: football
+  jdbc:
+    database:
+      driver: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: 'true'
+
+  thymeleaf:
+    prefix: classpath:/views/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

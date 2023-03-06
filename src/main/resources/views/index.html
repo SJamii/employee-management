@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee List</title>
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class = "container">
+    <div class="row ml-5 pl-5 mt-5">
+        <div style="margin-bottom: -23px;font-weight: 900;font-size: 26px;">
+            <label data-th-text="#{label.title.employee}"> text </label>
+        </div>
+    </div>
+    <div class = "row">
+        <div class="col-md-10 mt-5 mb-5" style="display: flex;justify-content: center;margin-left: 100px;">
+
+        <table class = "table table-bordered table-striped">
+            <thead class="bg-info">
+            <tr style="color: #E5E4E2;">
+                <th> Employee First Name</th>
+                <th> Employee Last Name</th>
+                <th> Employee Age</th>
+                <th> Employee Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.firstName}"></td>
+                <td th:text="${employee.lastName}"></td>
+                <td th:text="${employee.age}"></td>
+                <td th:text="${employee.email}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+</div>
+</body>
+</html>

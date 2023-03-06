@@ -3,6 +3,7 @@ package com.example.empManagement.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -37,7 +38,7 @@ public class Employee {
     @Column(name = "designation")
     private String designation;
     @Column(name = "joining_date")
-    @JsonFormat(pattern="dd/MM/yy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date joiningDate;
     @Transient
     private Boolean viewOnly;

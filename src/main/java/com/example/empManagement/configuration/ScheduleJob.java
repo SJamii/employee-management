@@ -11,8 +11,8 @@ import java.util.Date;
 public class ScheduleJob {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Scheduled(cron = "0/30 * * * * *")
+    @Scheduled(cron = "${cron.expression}")
     public void getCurrentDateByJob() {
-        log.info(" ::  -----  Current Date Is --- ::  " + new Date().toString());
+        log.info(" -----  Current Date ---  " + new Date().toString());
     }
 }

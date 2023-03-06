@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Create Employee</title>
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="row ml-5 pl-5 mt-5">
+        <div style="margin-bottom: -23px;font-weight: 900;font-size: 26px;margin-left: 68px;background-color: #60e004">
+            <label data-th-text="#{label.title.employee.create}"> text </label>
+        </div>
+    </div>
+    <div class = "row">
+        <div class="col-md-10 mt-5 mb-5" style="display: flex;justify-content: center;margin-left: 100px;">
+
+
+            <form th:action="@{/save}" th:object="${employee}" method="post" class="form-horizontal">
+                <div style = "position:absolute; left:80px; top:20px;">
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.firstName}"> text </label>
+                    <div class="col-md-7">
+                        <input class="form-control" type="text" th:field="*{firstName}" placeholder="Enter First Name" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.lastName}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{lastName}" placeholder="Enter Last Name" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.age}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{age}" placeholder="Enter Age" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.email}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{email}" placeholder="Enter Email" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.joiningDate}"> text </label>
+                    <div class="col-md-7">
+                        <input type="date" class="form-control" th:field="*{joiningDate}" placeholder="Date" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.gender}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{gender}" placeholder="Enter Gender" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.phoneNumber}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="Enter Phone Number" />
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.designation}"> text </label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" th:field="*{designation}" placeholder="Enter Designation" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-5 control-label pr-5" data-th-text="#{label.title.employee.address}"> text </label>
+                    <div class="col-md-7">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{location}"></textarea>
+                    </div>
+
+                </div>
+
+                </div>
+                <div style="position:absolute; right:50px;top: 560px;">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

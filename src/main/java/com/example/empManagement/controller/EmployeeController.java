@@ -41,7 +41,7 @@ public class EmployeeController {
 
     @GetMapping("/list")
     public String employeeList(HttpServletRequest request, Model model){
-        log.info(" -------- Employee List View Controller ---------");
+//        log.info(" -------- Employee List View Controller ---------");
         List<Employee> employeeList = new ArrayList<>();
         try {
             employeeList = employeeDao.findAll();
@@ -53,7 +53,7 @@ public class EmployeeController {
     }
     @GetMapping(value = {"/create","/edit", "/view"})
     public String employeeCreate(Model model) {
-        log.info(" --------- Employee Create,View,Edit Get Controller ---------");
+//        log.info(" --------- Employee Create,View,Edit Get Controller ---------");
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
         return "employeeCreate";
@@ -61,7 +61,7 @@ public class EmployeeController {
 
     @PostMapping("/save")
     public String employeeCreatePost(@ModelAttribute("employee") Employee employee) {
-        log.info(" --------- Employee  Post Controller ---------");
+//        log.info(" --------- Employee  Post Controller ---------");
         try{
             employeeDao.save(employee);
         } catch (Exception ex) {

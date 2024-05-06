@@ -1,6 +1,8 @@
 package com.example.empManagement.controller;
 
 import com.example.empManagement.dao.EmployeeDao;
+import com.example.empManagement.enums.DesignationEnum;
+import com.example.empManagement.enums.GenderEnum;
 import com.example.empManagement.model.Employee;
 import com.example.empManagement.util.Constants;
 import org.slf4j.Logger;
@@ -15,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
+
     private final EmployeeDao employeeDao;
+
     public EmployeeController(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
@@ -41,7 +43,6 @@ public class EmployeeController {
 
     @GetMapping("/list")
     public String employeeList(HttpServletRequest request, Model model){
-//        log.info(" -------- Employee List View Controller ---------");
         List<Employee> employeeList = new ArrayList<>();
         try {
             employeeList = employeeDao.findAll();
@@ -49,13 +50,15 @@ public class EmployeeController {
             log.error("Error Occured :: " + ex.getMessage());
         }
         model.addAttribute("employees",employeeList);
-        return "index";
+        return "employeeList";
     }
     @GetMapping(value = {"/create","/edit", "/view"})
     public String employeeCreate(Model model) {
 //        log.info(" --------- Employee Create,View,Edit Get Controller ---------");
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
+        model.addAttribute("genderList", GenderEnum.genderAsJsonArray());
+        model.addAttribute("positionList", DesignationEnum.positionAsJsonArray());
         return "employeeCreate";
     }
 
